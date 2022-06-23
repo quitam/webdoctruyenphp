@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Theloai extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
+    protected $fillable = ['tentheloai','mota'];
+    //protected $primaryKey = 'id';
+    protected $table = 'theloai';
 }
