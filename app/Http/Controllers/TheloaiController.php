@@ -14,6 +14,7 @@ class TheloaiController extends Controller
      */
     public function index()
     {
+        //sắp xếp thể loại theo id giảm dần(cái mới thêm được hiển thị trước)
         $theloai = Theloai::orderBy('id','DESC')->get();
         //$theloai = Theloai::all();
         return view('admin.theloai.index')->with(compact('theloai'));
@@ -73,7 +74,9 @@ class TheloaiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $theloai = Theloai::find($id);
+        return view('admin.theloai.edit')->with(compact('theloai'));
+        //return redirect()->back()->with('status','Thêm thể loại thành công');
     }
 
     /**
@@ -85,7 +88,20 @@ class TheloaiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate(
+            [
+                'tentheloai'=> 'required|max:255',
+                'mota'=>'required',],
+            [
+                'tentheloai.required'=>'Không được để trống tên thể loại',
+                'mota.required'=>'Không được để trống mô tả',
+            ]
+        );
+        $theloai = Theloai::find($id);
+        $theloai->tentheloai = $data['tentheloai'];
+        $theloai->mota = $data['mota'];
+        $theloai->save();
+        return redirect()->back()->with('status','Cập nhật thành công');
     }
 
     /**

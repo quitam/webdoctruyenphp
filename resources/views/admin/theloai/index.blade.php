@@ -5,7 +5,7 @@
 @include('layouts.nav')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header" style="font-size: 150%; cursor: default;">Tất cả thể loại</div>
 
@@ -19,19 +19,20 @@
                     <table class="table table-hover">
                         <thead class="table-dark">
                             <tr>
-                                <th scope="col"></th>
-                                <th scope="col">Tên thể loại</th>
-                                <th scope="col-6">Mô tả</th>
-                                <th scope="col">Hành động</th>
+                                <th scope="col" class="text-center">STT</th>
+                                <th scope="col" class="text-center">Tên thể loại</th>
+                                <th scope="col" class="text-center">Mô tả</th>
+                                <th scope="col" class="text-center">Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($theloai as $key => $tentheloai)
                             <tr>
-                                <th scope="row">{{$key}}</th>
-                                <td>{{$tentheloai->tentheloai}}</td>
-                                <td>{{$tentheloai->mota}}</td>
-                                <td>
+                                <th scope="row" class="text-center align-middle">{{$key+1}}</th>
+                                <td class="text-center align-middle">{{$tentheloai->tentheloai}}</td>
+                                <td class="align-middle">{{$tentheloai->mota}}</td>
+                                <td class="text-center">
+                                    <a href="{{route('theloai.edit',['theloai'=>$tentheloai->id])}}" class="btn btn-primary" style="margin-bottom: 5px;">Sửa</a>
                                     <form action="{{route('theloai.destroy',['theloai'=>$tentheloai->id])}}" method="POST">
                                         @method('DELETE')
                                         @csrf

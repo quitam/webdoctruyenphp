@@ -5,7 +5,7 @@
 @include('layouts.nav')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header" style="font-size: 150%; cursor: default;">Tất cả truyện</div>
 

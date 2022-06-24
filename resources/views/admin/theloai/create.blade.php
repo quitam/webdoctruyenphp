@@ -27,12 +27,12 @@
                         @csrf
                         <div class="mb-3">
                             <label for="tentheloai" class="form-label">Tên thể loại</label>
-                            <input type="text" class="form-control" name="tentheloai" id="tentheloai" aria-describedby="theloai" placeholder="Nhập tên thể loại">
+                            <input type="text" class="form-control" value="{{old('tentheloai')}}" name="tentheloai" id="tentheloai" aria-describedby="theloai" placeholder="Nhập tên thể loại">
                         </div>
                         <div class="mb-3">
                             <label for="mota" class="form-label">Mô tả thể loại</label><br>
                             <!-- <input type="textarea" class="form-control" id="mota" aria-describedby="mota" placeholder="Mô tả"> -->
-                            <textarea name="mota" id="" cols="105" rows="5" placeholder="Mô tả" form="themtheloai"></textarea>
+                            <textarea name="mota" id="" cols="105" rows="5" placeholder="Mô tả" form="themtheloai">{{old('mota')}}</textarea>
                         </div>
                         <button type="submit" name="themtheloai" class="btn btn-primary">Thêm</button>
                     </form>
