@@ -21,6 +21,7 @@
                             <tr>
                                 <th scope="col" class="text-center">STT</th>
                                 <th scope="col" class="text-center">Tên thể loại</th>
+                                <th scope="col" class="text-center">Slug thể loại</th>
                                 <th scope="col" class="text-center">Mô tả</th>
                                 <th scope="col" class="text-center">Hành động</th>
                             </tr>
@@ -29,6 +30,7 @@
                             @foreach($theloai as $key => $tentheloai)
                             <tr>
                                 <th scope="row" class="text-center align-middle">{{$key+1}}</th>
+                                <td class="text-center align-middle">{{$tentheloai->tentheloai}}</td>
                                 <td class="text-center align-middle">{{$tentheloai->tentheloai}}</td>
                                 <td class="align-middle">{{$tentheloai->mota}}</td>
                                 <td class="text-center">

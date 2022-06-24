@@ -1817,10 +1817,10 @@ progress {
     --bs-table-active-bg: rgba(0, 0, 0, 0.1);
     --bs-table-hover-color: #212529;
     --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
-    width: 80%;
+    width: 100%;
     margin-bottom: 1rem;
     color: #212529;
-    vertical-align: middle;
+    vertical-align: bottom;
     border-color: #dee2e6;
 }
 
@@ -1836,7 +1836,7 @@ progress {
 }
 
 .table>thead {
-    vertical-align: bottom;
+    vertical-align: middle;
 }
 
 .table> :not(:first-child) {
