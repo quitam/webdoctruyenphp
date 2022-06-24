@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
-@charset "UTF-8";
+
+/* @charset "UTF-8"; */
+
 
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
@@ -1817,8 +1819,8 @@ progress {
     --bs-table-active-bg: rgba(0, 0, 0, 0.1);
     --bs-table-hover-color: #212529;
     --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
-    width: 100%;
-    margin-bottom: 1rem;
+    width: 90%;
+    margin: auto auto;
     color: #212529;
     vertical-align: bottom;
     border-color: #dee2e6;
@@ -2383,8 +2385,8 @@ textarea.form-control-lg {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    -webkit-print-color-adjust: exact;
-    color-adjust: exact;
+    /* -webkit-print-color-adjust: exact;
+    color-adjust: exact; */
 }
 
 .form-check-input[type=checkbox] {
