@@ -41,6 +41,7 @@ class TheloaiController extends Controller
         $data = $request->validate(
             [
                 'tentheloai'=> 'required|unique:theloai|max:255',
+                'slug_theloai'=> 'required|max:255',
                 'mota'=>'required',],
             [
                 'tentheloai.required'=>'Không được để trống tên thể loại',
@@ -50,6 +51,7 @@ class TheloaiController extends Controller
         );
         $theloai = new Theloai();
         $theloai->tentheloai = $data['tentheloai'];
+        $theloai->slug_theloai = $data['slug_theloai'];
         $theloai->mota = $data['mota'];
         $theloai->save();
         return redirect()->back()->with('status','Thêm thể loại thành công');
@@ -91,6 +93,7 @@ class TheloaiController extends Controller
         $data = $request->validate(
             [
                 'tentheloai'=> 'required|max:255',
+                'slug_theloai'=> 'required|max:255',
                 'mota'=>'required',],
             [
                 'tentheloai.required'=>'Không được để trống tên thể loại',
@@ -99,6 +102,7 @@ class TheloaiController extends Controller
         );
         $theloai = Theloai::find($id);
         $theloai->tentheloai = $data['tentheloai'];
+        $theloai->slug_theloai = $data['slug_theloai'];
         $theloai->mota = $data['mota'];
         $theloai->save();
         return redirect()->back()->with('status','Cập nhật thành công');

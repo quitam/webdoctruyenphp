@@ -27,7 +27,11 @@
                         @csrf
                         <div class="mb-3">
                             <label for="tentheloai" class="form-label">Tên thể loại</label>
-                            <input type="text" class="form-control" value="{{old('tentheloai')}}" name="tentheloai" id="tentheloai" aria-describedby="theloai" placeholder="Nhập tên thể loại">
+                            <input type="text" class="form-control" value="{{old('tentheloai')}}" name="tentheloai" id="create_slug" onkeyup="ChangeToSlug();" aria-describedby="theloai" placeholder="Nhập tên thể loại">
+                        </div>
+                        <div class="mb-3">
+                            <label for="slugtheloai" class="form-label">Slug thể loại</label>
+                            <input readonly type="text" class="form-control" value="{{old('slug_theloai')}}" name="slug_theloai" id="convert_slug" aria-describedby="theloai" placeholder="Slug thể loại">
                         </div>
                         <div class="mb-3">
                             <label for="mota" class="form-label">Mô tả thể loại</label><br>

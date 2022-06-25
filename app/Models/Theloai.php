@@ -10,7 +10,7 @@ class Theloai extends Model
     use HasFactory;
 
     public $timestamps = false;
-    protected $fillable = ['tentheloai','mota'];
+    protected $fillable = ['tentheloai','mota','slug_theloai'];
     //protected $primaryKey = 'id';
     protected $table = 'theloai';
 }
