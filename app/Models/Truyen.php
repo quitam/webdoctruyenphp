@@ -13,4 +13,8 @@ class Truyen extends Model
     protected $fillable = ['tentruyen','slug_truyen','tomtat','id_theloai','hinhanh'];
     //protected $primaryKey = 'id';
     protected $table = 'truyen';
+
+    public function theloai(){
+        return $this->belongsTo('App\Models\Theloai','id_theloai','id');
+    }
 }

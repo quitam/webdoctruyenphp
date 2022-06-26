@@ -13,4 +13,8 @@ class Theloai extends Model
     protected $fillable = ['tentheloai','mota','slug_theloai'];
     //protected $primaryKey = 'id';
     protected $table = 'theloai';
+
+    public function truyen(){
+        return $this->hasMany('App\Models\Truyen','id_theloai','id');
+    }
 }

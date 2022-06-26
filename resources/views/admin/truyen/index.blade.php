@@ -3,9 +3,14 @@
 
 @section('content')
 @include('layouts.nav')
+<style>
+    .table {
+        width: 100%;
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header" style="font-size: 150%; cursor: default;">Tất cả truyện</div>
 
@@ -20,25 +25,29 @@
                         <thead class="table-dark">
                             <tr>
                                 <th scope="col" class="text-center" style="width: 5%">STT</th>
-                                <th scope="col" class="text-center" style="width: 20%">Tên thể loại</th>
-                                <th scope="col" class="text-center" style="width: 15%">Slug thể loại</th>
-                                <th scope="col" class="text-center" style="width: 50%">Mô tả</th>
-                                <th scope="col" class="text-center" style="width: 20%">Hành động</th>
+                                <th scope="col" class="text-center" style="width: 15%">Hình ảnh</th>
+                                <th scope="col" class="text-center" style="width: 15%">Tên truyện</th>
+                                <th scope="col" class="text-center" style="width: 15%">Slug truyện</th>
+                                <th scope="col" class="text-center" style="width: 15%">Thể loại</th>
+                                <th scope="col" class="text-center" style="width: 25%">Tóm tắt</th>
+                                <th scope="col" class="text-center" style="width: 10%">Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($theloai as $key => $tentheloai)
+                            @foreach($truyen as $key => $story)
                             <tr>
                                 <th scope="row" class="text-center align-middle">{{$key+1}}</th>
-                                <td class="text-center align-middle">{{$tentheloai->tentheloai}}</td>
-                                <td class="text-center align-middle">{{$tentheloai->slug_theloai}}</td>
-                                <td class="align-middle">{{$tentheloai->mota}}</td>
+                                <td class="text-center align-middle"><img src="{{asset('public/uploads/truyen/'.$story->hinhanh)}}" alt="{{$story->hinhanh}}" height="120"></td>
+                                <td class="text-center align-middle">{{$story->tentruyen}}</td>
+                                <td class="text-center align-middle">{{$story->slug_truyen}}</td>
+                                <td class="text-center align-middle">{{$story->theloai->tentheloai}}</td>
+                                <td class="align-middle">{{$story->tomtat}}</td>
                                 <td class="text-center align-middle">
-                                    <a href="{{route('theloai.edit',['theloai'=>$tentheloai->id])}}" class="btn btn-warning" style="margin-bottom: 5px;">Sửa</a>
-                                    <form action="{{route('theloai.destroy',['theloai'=>$tentheloai->id])}}" method="POST">
+                                    <a href="{{route('truyen.edit',['truyen'=>$story->id])}}" class="btn btn-warning" style="margin-bottom: 5px;">Sửa</a>
+                                    <form action="{{route('truyen.destroy',['truyen'=>$story->id])}}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <button onclick="return confirm('Bạn có chắc muốn xóa thể loại \({{$tentheloai->tentheloai}}\)')" class="btn btn-danger">Xóa</button>
+                                        <button onclick="return confirm('Bạn có chắc muốn xóa truyện \({{$story->tentruyen}}\) không')" class="btn btn-danger">Xóa</button>
                                     </form>
                                 </td>
                             </tr>

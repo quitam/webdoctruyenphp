@@ -36,10 +36,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="mota" class="form-label">Mô tả thể loại</label><br>
-                            <!-- <input type="textarea" class="form-control" id="mota" aria-describedby="mota" placeholder="Mô tả"> -->
-                            <textarea name="mota" id="" cols="105" rows="5" placeholder="Mô tả" form="themtheloai">{{$theloai->mota}}</textarea>
+                            <textarea name="mota" class="form-control" id="" cols="105" rows="5" placeholder="Mô tả" form="themtheloai" style="resize: none;">{{$theloai->mota}}</textarea>
                         </div>
-                        <button type="submit" name="themtheloai" class="btn btn-primary">Lưu</button>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="submit" name="themtheloai" class="btn btn-success me-md-2">Lưu</button>
+                        </div>
                     </form>
                 </div>
             </div>
