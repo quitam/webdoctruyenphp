@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Theloai;
+use App\Models\Truyen;
 
 class TruyenController extends Controller
 {
@@ -23,7 +25,8 @@ class TruyenController extends Controller
      */
     public function create()
     {
-        return view('admin.truyen.create');
+        $theloai = Theloai::orderBy('id','DESC')->get();
+        return view('admin.truyen.create')->with(compact('theloai'));
     }
 
     /**
@@ -34,7 +37,23 @@ class TruyenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate(
+            [
+                'tentruyen'=> 'required|unique:theloai|max:255',
+                'slug_truyen'=> 'required|max:255',
+                'tomtat'=>'required',],
+            [
+                'tentruyen.required'=>'Không được để trống tên thể loại',
+                'tomtat.required'=>'Không được để trống mô tả',
+                'tentruyen.unique'=>'Thể loại truyện này đã tồn tại',
+            ]
+        );
+        $theloai = new Theloai();
+        $theloai->tentheloai = $data['tentheloai'];
+        $theloai->slug_theloai = $data['slug_theloai'];
+        $theloai->mota = $data['mota'];
+        $theloai->save();
+        return redirect()->back()->with('status','Thêm thể loại thành công');
     }
 
     /**

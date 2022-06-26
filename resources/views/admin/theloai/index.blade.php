@@ -34,7 +34,7 @@
                                 <td class="text-center align-middle">{{$tentheloai->slug_theloai}}</td>
                                 <td class="align-middle">{{$tentheloai->mota}}</td>
                                 <td class="text-center align-middle">
-                                    <a href="{{route('theloai.edit',['theloai'=>$tentheloai->id])}}" class="btn btn-primary" style="margin-bottom: 5px;">Sửa</a>
+                                    <a href="{{route('theloai.edit',['theloai'=>$tentheloai->id])}}" class="btn btn-warning" style="margin-bottom: 5px;">Sửa</a>
                                     <form action="{{route('theloai.destroy',['theloai'=>$tentheloai->id])}}" method="POST">
                                         @method('DELETE')
                                         @csrf

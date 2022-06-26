@@ -35,9 +35,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="mota" class="form-label">Mô tả thể loại</label><br>
-                            <textarea name="mota" id="" cols="105" rows="5" placeholder="Mô tả" form="themtheloai">{{old('mota')}}</textarea>
+                            <textarea name="mota" id="" cols="105" rows="8" placeholder="Mô tả" form="themtheloai"  style="resize: none;">{{old('mota')}}</textarea>
                         </div>
-                        <button type="submit" name="themtheloai" class="btn btn-primary">Thêm</button>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="submit" name="themtheloai" class="btn btn-success me-md-2">Thêm thể loại</button>
+                        </div>
                     </form>
                 </div>
             </div>

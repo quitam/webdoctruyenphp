@@ -16,35 +16,36 @@
                     </div>
                     @endif
 
-                    <table class="table">
-                        <thead>
+                    <table class="table table-hover table-bordered">
+                        <thead class="table-dark">
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col" class="text-center" style="width: 5%">STT</th>
+                                <th scope="col" class="text-center" style="width: 20%">Tên thể loại</th>
+                                <th scope="col" class="text-center" style="width: 15%">Slug thể loại</th>
+                                <th scope="col" class="text-center" style="width: 50%">Mô tả</th>
+                                <th scope="col" class="text-center" style="width: 20%">Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($theloai as $key => $tentheloai)
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
+                                <th scope="row" class="text-center align-middle">{{$key+1}}</th>
+                                <td class="text-center align-middle">{{$tentheloai->tentheloai}}</td>
+                                <td class="text-center align-middle">{{$tentheloai->slug_theloai}}</td>
+                                <td class="align-middle">{{$tentheloai->mota}}</td>
+                                <td class="text-center align-middle">
+                                    <a href="{{route('theloai.edit',['theloai'=>$tentheloai->id])}}" class="btn btn-warning" style="margin-bottom: 5px;">Sửa</a>
+                                    <form action="{{route('theloai.destroy',['theloai'=>$tentheloai->id])}}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button onclick="return confirm('Bạn có chắc muốn xóa thể loại \({{$tentheloai->tentheloai}}\)')" class="btn btn-danger">Xóa</button>
+                                    </form>
+                                </td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>
