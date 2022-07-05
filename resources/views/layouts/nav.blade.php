@@ -33,6 +33,15 @@
                             <li><a class="dropdown-item" href="{{route('truyen.index')}}">Xem tất cả truyện</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 120%;">
+                            Chương
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{route('chuong.create')}}">Thêm chương</a></li>
+                            <li><a class="dropdown-item" href="{{route('chuong.index')}}">Xem tất cả chương</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Tìm kiếm" aria-label="Search">

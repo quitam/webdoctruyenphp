@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TheloaiController;
 use App\Http\Controllers\TruyenController;
+use App\Http\Controllers\ChuongController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,5 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::resource('/theloai', TheloaiController::class);
 
 Route::resource('/truyen', TruyenController::class);
+
+Route::resource('/chuong', ChuongController::class);
