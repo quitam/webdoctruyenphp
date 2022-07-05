@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" style="font-size: 150%; cursor: default;">Chỉnh sửa truyện</div>
+                <div class="card-header" style="font-size: 150%; cursor: default;">Chỉnh sửa chương</div>
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -23,36 +23,34 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    <form method="POST" action="{{route('truyen.update',[$truyen->id])}}" id="themtruyen" enctype="multipart/form-data">
+                    <form method="POST" action="{{route('chuong.update',[$chuong->id])}}" id="themchuong" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <div class="mb-3">
-                            <label for="tentruyen" class="form-label">Tên truyện</label>
-                            <input type="text" class="form-control" value="{{$truyen->tentruyen}}" name="tentruyen" id="create_slug" onkeyup="ChangeToSlug();" aria-describedby="truyen" placeholder="Nhập tên truyện">
+                            <label for="tenchuong" class="form-label">Tên chương</label>
+                            <input type="text" class="form-control" value="{{$chuong->tenchuong}}" name="tenchuong" id="create_slug" onkeyup="ChangeToSlug();" aria-describedby="chuong" placeholder="Nhập tên chương">
                         </div>
                         <div class="mb-3">
-                            <label for="slugtheloai" class="form-label">Slug truyện</label>
-                            <input readonly type="text" class="form-control" value="{{$truyen->slug_truyen}}" name="slug_truyen" id="convert_slug" aria-describedby="truyen" placeholder="Slug truyện">
+                            <label for="slugchuong" class="form-label">Slug chương</label>
+                            <input readonly type="text" class="form-control" value="{{$chuong->slug_chuong}}" name="slug_chuong" id="convert_slug" aria-describedby="chuong" placeholder="Slug chương">
                         </div>
+
                         <div class="mb-3">
-                            <label for="tomtat" class="form-label">Tóm tắt truyện</label><br>
-                            <textarea name="tomtat" class="form-control" id="" cols="105" rows="5" placeholder="Nội dung ngắn gọn..." form="themtruyen" style="resize: none;">{{$truyen->tomtat}}</textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="idtheloai" class="form-label">Thể loại</label>
-                            <select name="idtheloai" id="idtheloai" class="custom-select">
-                                @foreach($theloai as $key => $category)
-                                <option <?= $category->id==$truyen->id_theloai ? 'selected':''?> value="{{$category->id}}">{{$category->tentheloai}}</option>
+                            <label for="idtruyen" class="form-label">Thuộc truyện: </label>
+                            <select name="idtruyen" id="idtruyen" class="custom-select">
+                                @foreach($truyen as $key => $story)
+                                <option <?= $story->id==$chuong->id_truyen ? 'selected':''?> value="{{$story->id}}">{{$story->tentruyen}}</option>
                                 @endforeach
                             </select>
                         </div>
+
                         <div class="mb-3">
-                            <label for="hinhanh" class="form-label">Hình ảnh truyện</label>
-                            <input type="file" class="form-control-file" name="hinhanh">
-                            <img src="{{asset('public/uploads/truyen/'.$truyen->hinhanh)}}" alt="{{$truyen->hinhanh}}" height="120">
+                            <label for="noidung" class="form-label">Nội dung chương</label><br>
+                            <textarea name="noidung" class="form-control" id="" cols="105" rows="5" placeholder="Nội dung chương" form="themchuong" style="resize: none;">{{$chuong->noidung}}</textarea>
                         </div>
+
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button type="submit" name="themtruyen" class="btn btn-success me-md-2">Lưu</button>
+                            <button type="submit" name="themchuong" class="btn btn-success me-md-2">Lưu</button>
                         </div>
                     </form>
                 </div>

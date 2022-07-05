@@ -14,4 +14,8 @@ class Chuong extends Model
     //protected $primaryKey = 'id';
     protected $table = 'chuong';
 
+    public function truyen(){
+        return $this->belongsTo('App\Models\Truyen','id_truyen','id');
+    }
+
 }

@@ -45,7 +45,7 @@ class TruyenController extends Controller
                 'tomtat' => 'required',
                 'idtheloai' => 'required',
                 'hinhanh' => 'required|image|mimes:jpeg,png,jpg,gif,svg|
-                dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
+                dimensions:min_width=100,min_height=100,max_width=1500,max_height=1500',
             ],
             [
                 'tentruyen.required' => 'Không được để trống tên truyện',

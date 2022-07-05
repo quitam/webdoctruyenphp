@@ -49,7 +49,7 @@
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button type="submit" name="themchuong" class="btn btn-success me-md-2">Thêm truyện</button>
+                            <button type="submit" name="themchuong" class="btn btn-success me-md-2">Thêm chương</button>
                         </div>
                     </form>
                 </div>
