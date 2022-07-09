@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Theloai;
 use App\Models\Truyen;
+use Illuminate\Support\Facades\DB;
 
 class TruyenController extends Controller
 {

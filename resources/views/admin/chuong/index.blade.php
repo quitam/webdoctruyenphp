@@ -27,8 +27,9 @@
                                 <th scope="col" class="text-center" style="width: 5%">STT</th>
                                 <th scope="col" class="text-center" style="width: 15%">Tên chương</th>
                                 <th scope="col" class="text-center" style="width: 15%">Slug chương</th>
-                                <th scope="col" class="text-center" style="width: 20%">Truyện</th>
-                                <th scope="col" class="text-center" style="width: 35%">Nội dung</th>
+                                <th scope="col" class="text-center" style="width: 15%">Truyện</th>
+                                <th scope="col" class="text-center" style="width: 10%">Ảnh truyện</th>
+                                <th scope="col" class="text-center" style="width: 30%">Nội dung truyện</th>
                                 <th scope="col" class="text-center" style="width: 10%">Hành động</th>
                             </tr>
                         </thead>
@@ -39,6 +40,7 @@
                                 <td class="text-center align-middle">{{$chapter->tenchuong}}</td>
                                 <td class="text-center align-middle">{{$chapter->slug_chuong}}</td>
                                 <td class="text-center align-middle">{{$chapter->truyen->tentruyen}}</td>
+                                <td class="text-center align-middle"><img src="{{asset('public/uploads/truyen/'.$chapter->truyen->hinhanh)}}" alt="{{$chapter->truyen->hinhanh}}" height="120"></td>
                                 <td class="align-middle">{{$chapter->noidung}}</td>
                                 <td class="text-center align-middle">
                                     <a href="{{route('chuong.edit',['chuong'=>$chapter->id])}}" class="btn btn-warning" style="margin-bottom: 5px;">Sửa</a>
